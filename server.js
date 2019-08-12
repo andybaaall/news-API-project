@@ -4,6 +4,7 @@ const path = require('path');
 
 
 http.createServer(function(req, res){
+  console.log(`got a ${req.method} request for ${req.url}`);
 
   if (req.url === '/'){
     fs.readFile('public/index.html', 'utf-8', function(err, data){
@@ -47,4 +48,4 @@ http.createServer(function(req, res){
     console.log(`looked for ${req.url} and didn't get told to do anything with it `);
   }
 
-}).listen(3000);
+}).listen(2999);
