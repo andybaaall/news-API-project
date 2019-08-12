@@ -1,0 +1,29 @@
+{
+  "name": "news-api-project",
+  "version": "1.0.0",
+  "description": "SPA for checking out the news!",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andybaaall/news-API-project.git"
+  },
+  "keywords": [
+    "Ajax",
+    "JSON",
+    "Node.js"
+  ],
+  "author": "Andy Ball and Larissa Casey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andybaaall/news-API-project/issues"
+  },
+  "homepage": "https://github.com/andybaaall/news-API-project#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
+  }
+}
