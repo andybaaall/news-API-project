@@ -10,6 +10,33 @@ app.use(function(req, res, next){
   next();
 });
 
+$('#business').on('click',function(e){
+  var query = $('#searchquery').val();
+  var url = 'https://newsapi.org/v2/sources?apiKey=99fc1da6f5aa4cefbd6595730ee0d09e';
+
+  $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+
+    success: function(news){
+      console.log('success');
+    },
+
+    error: function(){
+      console.log('bummer');
+    }
+  });
+};
+
+// newsapi.v2.sources({
+//   category: 'technology',
+//   language: 'en',
+//   country: 'us'
+// }).then(response => {
+//   console.log(response);
+// });
+
 app.use(express.static('./public'));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use('/popper', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd')));
