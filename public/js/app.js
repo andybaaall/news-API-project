@@ -1,7 +1,11 @@
 $(document).ready(function(){
-  console.log('hello world');
+  // console.log('hello world');
 
   let newsAPIKey;
+
+  const pageSize = '&pagesize=10'
+  const international = 'top-headlines?language=en';
+  const local = 'top-headlines?country=nz';
 
   $.ajax({
     url: 'config.json',
@@ -10,34 +14,31 @@ $(document).ready(function(){
     success: function(keys){
       newsAPIKey = keys['newsAPIKey'];
 
-      getNews = () => {
-        console.log(newsAPIKey);
+      getNews = (filter) => {
         $.ajax({
-          url: `https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIKey}`,
+          url: `https://newsapi.org/v2/${filter}${pageSize}&apiKey=${newsAPIKey}`,
           type: 'GET',
           dataType: 'json',
           success: function(data){
             console.log(data);
+
           },
           error: function() {
             console.log('something bad happened');
           }
         })
-
-        // this is the example request; we'll need to inject variables into it to apply filters / searches
-        // var url = 'https://newsapi.org/v2/top-headlines?' +
-        //   'country=us&' +
-        //   'apiKey=fc46efbdff4b4b87859a04064efd62c2';
-        // var req = new Request(url);
-        // fetch(req)
-        // .then(function(response) {
-        //   // console.log(response.json());
-        //   var reponse = (response.json());
-        //   console.log(response);
-        // })
       }
 
-      getNews();
+      $('#localBtn').click(function(){
+        getNews(local);
+      });
+
+      $('#internationalBtn').click(function(){
+        getNews(international);
+      });
+
+
+
 
     },
     error: function(){
