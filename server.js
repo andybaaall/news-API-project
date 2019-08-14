@@ -24,13 +24,12 @@ http.createServer(function(req, res){
   }
 
   else if (req.url.match(/.css/)) {
-      // console.log('got a match on a css file');
-      const cssPath = path.join(__dirname, 'public', req.url);
+    const cssPath = path.join(__dirname, 'public', req.url);
 
-      fs.readFile(cssPath, function (err, data){
-        if (err) throw err;
-        res.end(data);
-      })
+    fs.readFile(cssPath, function (err, data){
+      if (err) throw err;
+      res.end(data);
+    })
     }
 
   else if (req.url.match(/.js/)){

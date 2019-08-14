@@ -4,6 +4,8 @@ $(document).ready(function(){
   let newsAPIKey;
 
   const pageSize = '&pagesize=10'
+
+  // filters
   const international = 'top-headlines?language=en';
   const local = 'top-headlines?country=nz';
 
@@ -20,7 +22,7 @@ $(document).ready(function(){
           type: 'GET',
           dataType: 'json',
           success: function(data){
-            console.log(data);
+            // console.log(data);
             $('#articleCardContainer').empty();
 
             for (var i = 0; i < data.articles.length; i++) {
