@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Lariss and Andy's Cool Website</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lariss and Andy's Cool Website</title>
 
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href=" gotta set up this business in grunt"> -->
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>cool news app</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <button id="localBtn" class="btn btn-primary btn-round" type="button" name="button">get local stories (console)</button>
-        </div>
-        <div class="col">
-          <button id="internationalBtn" class="btn btn-primary btn-round" type="button" name="button">get international stories (console)</button>
-        </div>
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href=" gotta set up this business in grunt"> -->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>cool news app</h1>
       </div>
     </div>
+    <div class="row">
+      <div class="col-6">
+        <button id="localBtn" class="btn btn-primary btn-round" type="button" name="button">get local stories (console)</button>
+      </div>
+      <div class="col-6">
+        <button id="internationalBtn" class="btn btn-primary btn-round" type="button" name="button">get international stories (console)</button>
+      </div>
+    </div>
+      <div class="container-fluid mt-4">
+        <div class="row justify-content-center">
+          <div id="articleCardContainer" class="col-auto mb-3"><!-- content rendered by getNews(foo) --></div>
+        </div>
+      </div>
+  </div>
 
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/js/app.js"></script>
 
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/js/app.js"></script>
-
-  </body>
+</body>
 </html>

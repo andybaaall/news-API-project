@@ -21,9 +21,23 @@ $(document).ready(function(){
           dataType: 'json',
           success: function(data){
             console.log(data);
+            $('#articleCardContainer').empty();
 
+            for (var i = 0; i < data.articles.length; i++) {
+              $('#articleCardContainer').append(`<div class="col-auto mb-3">
+                                                    <div class="card">
+                                                      <div class="card-body">
+                                                          <div class="card-title">${data.articles[i].title}</div>
+                                                            <div class="card-body">
+                                                              ${data.articles[i].description}
+                                                              <a href ="${data.articles[i].url}">Read more</a>
+                                                            </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>`);
+            }
           },
-          error: function() {
+          error: function(){
             console.log('something bad happened');
           }
         })
