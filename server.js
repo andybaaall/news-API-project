@@ -1,49 +1,50 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const http = require('http');
+const fs = require('fs');
 const path = require('path');
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('99fc1da6f5aa4cefbd6595730ee0d09e');
 
-app.use(function(req, res, next){
-  console.log(`${req.method} request for ${req.url}`);
-  next();
-});
 
-$('#business').on('click',function(e){
-  var query = $('#searchquery').val();
-  var url = 'https://newsapi.org/v2/sources?apiKey=99fc1da6f5aa4cefbd6595730ee0d09e';
+http.createServer(function(req, res){
+  console.log(`got a ${req.method} request for ${req.url}`);
 
-  $.ajax({
-    url: url,
-    method: "GET",
-    dataType: "json",
+  if (req.url === '/'){
+    fs.readFile('public/index.html', 'utf-8', function(err, data){
+      if (err) throw err;
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.end(data);
+    });
+  }
 
-    success: function(news){
-      console.log('success');
-    },
+  else if(req.url.match(/node_modules/)){
+    const modulePath = path.join(__dirname, req.url);
+    fs.readFile(modulePath, 'UTF-8', function(err, data){
+        if (err) throw err;
+        res.writeHead(200, {'Content-Type': 'text/css'});
+        res.end(data);
+    })
+  }
 
-    error: function(){
-      console.log('bummer');
+  else if (req.url.match(/.css/)) {
+    const cssPath = path.join(__dirname, 'public', req.url);
+
+    fs.readFile(cssPath, function (err, data){
+      if (err) throw err;
+      res.end(data);
+    })
     }
-  });
-};
 
-// newsapi.v2.sources({
-//   category: 'technology',
-//   language: 'en',
-//   country: 'us'
-// }).then(response => {
-//   console.log(response);
-// });
+  else if (req.url.match(/.js/)){
+    const jsPath = path.join(__dirname, 'public', req.url);
 
-app.use(express.static('./public'));
-app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-app.use('/popper', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd')));
-app.use('/js', express.static(path.join(__dirname, 'public/js/script.js')));
+    fs.readFile(jsPath, function (err, data){
+      if (err) throw err;
+      res.end(data);
+    });
+  }
 
+  else {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end(`404 error`);
+    console.log(`looked for ${req.url} and didn't get told to do anything with it `);
+  }
 
-
-
-
-app.listen(port, () => console.log(`application is running on port ${port}`));
+}).listen(2999);
