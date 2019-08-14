@@ -8,6 +8,15 @@ $(document).ready(function(){
   // filters
   const international = 'top-headlines?language=en';
   const local = 'top-headlines?country=nz';
+  const localSports = 'top-headlines?country=nz&category=sports'
+  // const localEntertainment =
+  // const localHealth =
+  // const localBusiness =
+
+
+// /Users/932400399/Desktop/virtualServers/server1/www/news-API-project/config.json
+// /Users/932400399/Desktop/virtualServers/server1/www/news-API-project/public/js/app.js
+
 
   $.ajax({
     url: 'config.json',
