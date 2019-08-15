@@ -23,7 +23,13 @@
   "homepage": "https://github.com/andybaaall/news-API-project#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4"
   }
 }
