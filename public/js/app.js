@@ -35,13 +35,14 @@ $(document).ready(function(){
             $('#articleCardContainer').empty();
 
             for (var i = 0; i < data.articles.length; i++) {
-              $('#articleCardContainer').append(`<div class="col-auto mb-3">
+              $('#articleCardContainer').append(`<div class="col-12 mb-3">
                                                     <div class="card">
+                                                    <img src="${data.articles[i].urlToImage}" class="card-img-top">
                                                       <div class="card-body">
-                                                          <div class="card-title">${data.articles[i].title}</div>
+                                                          <div class="card-title"><h5 class="card-title text-center">${data.articles[i].title}</h5></div>
                                                             <div class="card-body">
-                                                              ${data.articles[i].description}
-                                                              <a href ="${data.articles[i].url}">Read more</a>
+                                                              <p class="card-text text-center">${data.articles[i].description}</p>
+                                                              <a href="${data.articles[i].url}"><p class="text-center">Read more</p></a>
                                                             </div>
                                                       </div>
                                                     </div>

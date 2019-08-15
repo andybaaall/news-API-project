@@ -6,25 +6,30 @@
   <title>Lariss and Andy's Cool Website</title>
 
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/master.css">
   <!-- <link rel="stylesheet" href=" gotta set up this business in grunt"> -->
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h1>cool news app</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <button id="localBtn" class="btn btn-primary btn-round" type="button" name="button">get local stories</button>
-      </div>
-      <div class="col-6">
-        <button id="internationalBtn" class="btn btn-primary btn-round" type="button" name="button">get international stories</button>
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand mr-3" href="#">Cool News App</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <button id="localBtn" class="btn btn-dark btn-round ml-4 px-3" type="button" name="button">Local</button>
+              <button id="internationalBtn" class="btn btn-dark btn-round px-3" type="button" name="button">Global</button>
+              <button id="about" class="btn btn-dark btn-round px-3" type="button" name="button" onclick="aboutUs()">About</button>
+            </ul>
+          </div>
+        </nav>
       </div>
     </div>
       <div class="container-fluid mt-4">
-        <div class="row justify-content-center">
+        <div class="row">
           <div id="articleCardContainer" class="col-auto mb-3"><!-- content rendered by getNews(foo) --></div>
         </div>
       </div>
@@ -33,6 +38,7 @@
   <script src="/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/js/app.js"></script>
+  <script src="/js/script.js"></script>
 
 </body>
 </html>

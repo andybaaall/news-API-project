@@ -1,4 +1,19 @@
 * {
-  background-color: #9c88ff;
-  color: white;
+  margin: 0;
+  padding: 0
+}
+
+nav {
+  width: 100vw !important;
+}
+
+.container {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.displayNone {
+  display: none;
 }

@@ -41,6 +41,16 @@ http.createServer(function(req, res){
     });
   }
 
+  else if (req.url.match(/.jpg/)){
+    const imgPath = path.join(__dirname, 'public', req.url);
+
+    fs.readFile(imgPath, function (err, data){
+      if (err) throw err;
+      res.writeHead(200, {'Content-Type': 'image/jpg'});
+      res.end(data);
+    });
+  }
+
   else {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end(`404 error`);
